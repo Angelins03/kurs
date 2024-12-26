@@ -1,0 +1,927 @@
+@font-face {
+  font-family: "Arsenal";
+  src: url(fonts/Arsenal/Arsenal-Regular.ttf);
+}
+@font-face {
+  font-family: "Blacker";
+  src: url(fonts/Blacker/BlackerSansText-Regular.ttf);
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  margin: 0;
+}
+div {
+  display: block;
+}
+h1,
+h2,
+h3 {
+  margin-bottom: 16px;
+  font-family: "Blacker";
+  font-weight: normal;
+}
+h1 {
+  font-size: 40px;
+}
+h2 {
+  font-size: 24px;
+}
+p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-family: "Arsenal";
+}
+img {
+  max-width: 100%;
+}
+.container {
+  margin: 0 auto;
+  padding: 0;
+}
+.header {
+  position: fixed;
+  z-index: 9998;
+  background-color: #ffffffa1;
+  width: 100%;
+}
+.header__menu {
+  padding: 10px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__logo-img {
+  width: 200px;
+}
+.header__nav-item {
+  font-family: "Arsenal";
+  color: black;
+  text-decoration: none;
+  font-size: 18px;
+  margin-right: 20px;
+  position: relative;
+  padding-bottom: 5px;
+  z-index: 9999;
+}
+.header__nav-item:hover{
+    color: #de222b;
+}
+.header__nav-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: #de222b;
+  transition: all 0.3s;
+}
+.header__nav-item-center::after {
+  left: 50%;
+}
+.header__nav-item-center:hover::after {
+  width: 100%;
+}
+.header__nav-item-center:hover::after {
+    left: 0;
+  }
+
+.header__phone {
+  border-left: 1.2px solid black;
+  padding-left: 15px;
+}
+.phone__holder {
+  display: flex;
+  align-items: center;
+}
+.header__phone-img {
+  width: 25px;
+}
+.header__phone-text {
+  font-family: "Arsenal";
+  color: black;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: normal;
+}
+.num {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.main {
+  background-color: rgba(187, 186, 186, 0.352);
+}
+.main__body {
+  display: flex;
+  align-items: stretch; /* растягиваться по высоте или ширине (в зависимости от ориентации) контейнера так, чтобы они заняли всю доступную доступную область контейнера */
+  padding: 180px 40px 100px 40px;
+  gap: 10px;
+}
+.main__text {
+  width: 100%;
+}
+.main__text .main-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 5%;
+  z-index: 99999999999;
+}
+.btn {
+  display: inline-block;
+  font-family: "Arsenal";
+  padding: 10px 20px;
+  margin-right: 16px;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: 0.4s;
+  font-weight: 500;
+  border: 2px solid #de222b;
+}
+.btn__red {
+  background-color: #de222b;
+  color: #fff;
+}
+
+#myBtn {
+  background-color: #de222b;
+  color: white;
+  padding: 9px 8px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  width: 200px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 99999999; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    margin: auto;
+    padding: 0;
+    width: 30%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #de222b;
+    color: white;
+
+}
+.modal__title {
+  margin: 0 auto;
+}
+
+.modal-body-connect {
+  margin: 0 auto;
+  padding: 20px 16px;
+}
+.connect__body {
+  text-align: center;
+}
+.connect-btn {
+  width: 250px;
+  height: 35px;
+  text-align: center;
+  border-radius: 10px;
+}
+.modal__btn {
+  background-color: #de222b;
+  color: #fff;
+  padding: 9px 8px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  width: 100px;
+  border-radius: 10px;
+}
+.modal__result {
+  font-family: "Arsenal";
+}
+.modal__display {
+  display: flex;
+  justify-content: center;
+}
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #de222b;
+    color: #de222b;
+}
+
+.btn__red-text {
+  color: #de222b;
+}
+.main__img {
+  background-image: url(img/house.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.main__img .img-desktop {
+  position: absolute;
+  overflow: hidden;
+  right: 0;
+  width: 600px;
+}
+
+.about {
+  padding: 40px 40px;
+}
+.about__elements {
+  display: flex;
+  justify-content: space-between;
+}
+.about h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.about__elements-item {
+  width: 25%;
+  text-align: center;
+}
+.about__elements p {
+  text-align: center;
+  width: 100%;
+  padding-top: 20px;
+  line-height: 1.2;
+}
+.about__element-item-img {
+  height: 120px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-name: anim1; /* подключение анимации */
+  animation-duration: 3s;
+}
+.about__element-item-img-bg1 {
+  background-image: url(img/natural.png);
+}
+.about__element-item-img-bg2 {
+  background-image: url(img/place.png);
+}
+.about__element-item-img-bg3 {
+  background-image: url(img/bathouse.png);
+}
+.about__element-item-img-bg4 {
+  background-image: url(img/alcovee.png);
+}
+@keyframes anim1{
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.sale {
+  margin-bottom: 40px;
+}
+.sale__title {
+  text-align: center;
+}
+.sale__content {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+.sale__img {
+  background-image: url(img/sale.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 60%;
+  height: 250px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.timer {
+  display: grid;
+  grid-template-columns: 4.5rem 0.5rem 4.5rem 0.5rem 4.5rem 0.5rem 4.5rem;
+  font-size: 3rem;
+  justify-items: center;
+  background-color: rgba(128, 0, 128, 0.433);
+  padding-bottom: 20px;
+  border-radius: 10px;
+}
+
+.timer__item {
+  position: relative;
+}
+
+.timer__item::before {
+  content: attr(data-title);
+  display: block;
+  position: absolute;
+  bottom: -0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.875rem;
+  color: #424242;
+}
+
+
+
+.bathhouse {
+  background-color: rgba(187, 186, 186, 0.352);
+  padding: 60px 40px;
+}
+.bathhouse__body {
+  display: flex;
+  gap: 50px;
+}
+.bathhouse_carousel{
+  width: 90vh;
+}
+.bathhouse_carousel .carousel-item{
+  object-fit: cover;
+}
+.bathhouse__content {
+  width: 80vh;
+}
+.bathhouse__title {
+  text-align: center;
+}
+.bathhouse__list {
+  font-family: "Arsenal";
+  font-size: 18px;
+}
+.bathhouse__elements {
+  display: flex;
+  width: 100%;
+  border-top: 1px solid black;
+  padding-top: 20px;
+}
+.bathhouse__elements-content {
+  display: flex;
+}
+.bathhouse__elements-el {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 130px;
+  margin-right: 50px;
+}
+.bathhouse__elements-el2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 120px;
+  margin-right: 50px;
+}
+.bathhouse__elements-text {
+  margin: 0 auto;
+}
+.bathhouse__elements-img {
+  width: 25px;
+  margin-right: 5px;
+}
+
+
+
+
+.alcove {
+  padding: 60px 40px;
+  position: relative;
+}
+.alcove__body {
+  display: flex;
+  gap: 50px;
+}
+.alcove__content {
+  width: 80vh;
+}
+.alcove__title {
+  text-align: center;
+}
+.alcove__img {
+  width: 40%;
+  height: 300px;
+}
+.alcove__list {
+  font-family: "Arsenal";
+  font-size: 18px;
+}
+
+
+#myBtn {
+  background-color: #de222b;
+  color: white;
+  padding: 9px 8px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  width: 200px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 99999999; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    margin: auto;
+    padding: 0;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #de222b;
+    color: white;
+
+}
+.modal__title {
+  margin: 0 auto;
+}
+
+.modal-body {
+  margin: 0 auto;
+  padding: 50px 16px;
+}
+.modal__btn {
+  background-color: #de222b;
+  color: #fff;
+  padding: 9px 8px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  width: 100px;
+  border-radius: 10px;
+}
+.modal__result {
+  font-family: "Arsenal";
+}
+.modal__display {
+  display: flex;
+  justify-content: center;
+}
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #de222b;
+    color: #de222b;
+}
+
+
+label {
+  font-family: "Arsenal";
+}
+input {
+  font-family: "Arsenal";
+}
+span {
+  font-family: "Arsenal";
+  color: #de222b;
+}
+
+
+
+
+
+
+.alcove__elements {
+  display: flex;
+  width: 100%;
+  border-top: 1px solid black;
+  padding-top: 20px;
+}
+.alcove__elements-content {
+  display: flex;
+}
+.alcove__elements-el {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 160px;
+  margin-right: 50px;
+}
+.alcove__elements-el2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 150px;
+  margin-right: 50px;
+}
+.alcove__elements-text {
+  margin: 0 auto;
+}
+.alcove__elements-img {
+  width: 25px;
+  margin-right: 5px;
+}
+.alcove__carousel{
+  width: 90vh;
+}
+.alcove_carousel .carousel-item{
+  object-fit: cover;
+}
+
+
+.river {
+  background-image: url(img/river.jpg);
+  background-size: cover;
+  padding: 50px 0;
+  text-align: center;
+  background-attachment: fixed;
+}
+.river__text h1 {
+  color: #fff;
+  margin-bottom: 40px;
+}
+.river__btn {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0% 15% 0% 15%;
+  margin-bottom: 40px;
+  gap: 5%;
+  padding: 0;
+}
+.river__element {
+  font-family: "Arsenal";
+  padding: 7px 50px;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  background-color: #ffffffdf;
+  color: black;
+}
+.river__sent {
+  font-family: "Arsenal";
+  background-color: #de222b;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 7px 30px;
+}
+.river__sent:hover {
+  background-color: #de222bd3;
+  font-weight: 600;
+}
+
+.map {
+  position: relative;
+  margin: auto;
+}
+.map__address {
+  position: absolute;
+  right: 20%;
+  top: 25%;
+  background-color: #de222b;
+  width: 300px;
+  height: 250px;
+  color: #fff;
+  padding: 30px;
+  border-radius: 3%;
+}
+.map__title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.map__subtitle {
+  font-size: 16px;
+}
+.map__num_fff {
+  color: #fff;
+  text-decoration: none;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+/* .map__address-img{
+    width: 30px;
+} */
+
+.social-icon {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+}
+.social-icon:hover .social-icon-bloom {
+  -webkit-animation: background 0.5s ease both;
+  animation: background 0.5s ease both;
+}
+.social-icon:hover .social-icon-sparkle-line::before {
+  -webkit-animation: line 1s ease both;
+  animation: line 1s ease both;
+}
+.social-icon:hover .social-icon-shape {
+  -webkit-animation: shapeAnimation 1s ease both;
+  animation: shapeAnimation 1s ease both;
+}
+.social-icon-bloom {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  border-width: 0;
+  border-style: solid;
+  will-change: border-width;
+  border-color: #fff;
+}
+
+.social-icon-sparkle-line {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.social-icon-sparkle-line::before {
+  position: absolute;
+  z-index: 1;
+  top: 30%;
+  width: 4px;
+  height: 0;
+  left: calc(50% - 2px);
+  border-radius: 2px;
+  will-change: top, height;
+  content: "";
+}
+.social-icon-sparkle-line:nth-child(1) {
+  -webkit-transform: rotate(40deg);
+  transform: rotate(40deg);
+}
+.social-icon-sparkle-line:nth-child(2) {
+  -webkit-transform: rotate(110deg);
+  transform: rotate(110deg);
+}
+.social-icon-sparkle-line:nth-child(3) {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.social-icon-sparkle-line:nth-child(4) {
+  -webkit-transform: rotate(250deg);
+  transform: rotate(250deg);
+}
+.social-icon-sparkle-line:nth-child(5) {
+  -webkit-transform: rotate(320deg);
+  transform: rotate(320deg);
+}
+.social-icon-shape {
+  z-index: 1;
+  padding: 18px;
+  width: 100%;
+  height: 100%;
+  fill: #fff;
+  -webkit-transition: fill 0.3s ease;
+  transition: fill 0.3s ease;
+}
+
+.instagram-icon .social-icon-bloom {
+  border-color: #fff;
+}
+.instagram-icon .social-icon-sparkle-line::before {
+  background: #fff;
+}
+.instagram-icon:hover .social-icon-shape {
+  fill: #fff;
+}
+
+@-webkit-keyframes line {
+  0% {
+    top: 30%;
+    height: 0;
+  }
+  40% {
+    opacity: 1;
+    height: 14px;
+  }
+  100% {
+    opacity: 0;
+    top: 10%;
+    height: 0;
+  }
+}
+
+@keyframes line {
+  0% {
+    top: 30%;
+    height: 0;
+  }
+  40% {
+    opacity: 1;
+    height: 14px;
+  }
+  100% {
+    opacity: 0;
+    top: 10%;
+    height: 0;
+  }
+}
+@-webkit-keyframes shapeAnimation {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  20% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  30% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  60% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  70% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes shapeAnimation {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  20% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  30% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  60% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  70% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes background {
+  0% {
+    border-width: 40px; /* half icon width */
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  90% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    border-width: 0;
+  }
+}
+@keyframes background {
+  0% {
+    border-width: 40px;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  90% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    border-width: 0;
+  }
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.footer {
+  background-color: #de222b;
+  padding: 50px 0 20px 0;
+  width: 100%;
+}
+.footer__menu {
+  padding: 10px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 200px;
+  padding-bottom: 40px;
+  border-bottom: 2px solid #ffe9e9;
+}
+.footer__nav-item {
+  font-family: "Arsenal";
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  margin-right: 30px;
+}
+.footer__logo-img {
+  width: 200px;
+}
+.footer__register {
+  display: flex;
+  gap: 40%;
+  padding-top: 20px;
+  color: #fff;
+}
+.footer__dandd-text {
+  color: #fff;
+}
